@@ -3,25 +3,25 @@ from checker import build_url, is_https, show_response, check_site, scan_sites, 
 
 #PART1
 
-print(build_url(SITES[0], "login"))
-print(is_https(SITES[1]))
+print("PART1:"build_url(SITES[0], "login"))
+print("PART1:"is_https(SITES[1]))
 
 #PART2
 
-print(show_response(SITES[2]))
+print("PART2:"show_response(SITES[2]))
 
 #PART3
 
-print(check_site(SITES[2]))
+print("PART3:"check_site(SITES[2]))
 
 #PART4
 
-print(scan_sites())
+print("PART4:"scan_sites())
 
 #PART5
 
-print(check_headers(SITES[1]))
+print("PART5:"check_headers(SITES[1]))
 
 #PART6
 
-print(retry_check(SITES[4]))
+print("PART6:"retry_check(SITES[4]))

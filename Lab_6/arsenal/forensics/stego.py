@@ -4,8 +4,8 @@ from PIL import Image
 
 def ascunde(cale_gazda, mesaj, cale_iesire="stego.png"):
     img = Image.open(cale_gazda).convert("RGB")
-    canale = [c for px in img.getdata() for c in px]       # r,g,b,r,g,b,...
-    biti = "".join(f"{x:08b}" for x in mesaj + b"\x00")    # \x00 = sfarsit de mesaj
+    canale = [c for px in img.getdata() for c in px]
+    biti = "".join(f"{x:08b}" for x in mesaj + b"\x00")    
 
     if len(biti) > len(canale):
         raise ValueError("Mesaj prea lung!")

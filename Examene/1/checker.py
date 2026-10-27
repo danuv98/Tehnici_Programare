@@ -113,3 +113,4 @@ def retry_check(url, attempts=3):
         "attempts": 0
     }
 
+

@@ -48,5 +48,84 @@ def suid_constatari(cale):
  
 suid = suid_constatari("arsenal/privesc/start/suid.txt")
 mari = [c for c in suid if c["risc"] == "mare"]
-print(len(suid), "SUID,", len(mari), "cu risc mare")
-print(sorted(c["nume"] for c in mari))
+# print(len(suid), "SUID,", len(mari), "cu risc mare")
+# print(sorted(c["nume"] for c in mari))
+
+
+# A4
+
+def sudo_constatari(cale):
+    out = []
+    
+    for ln in citeste_linii(cale):
+        user, drept = ln.split(" : ", 1)
+    
+        out.append({
+            "user": user.strip(),
+            "drept": drept.strip(),
+            "risc": "mare" if "NOPASSWD" in drept else "normal"
+        })
+
+    return out
+
+
+def cron_constatari(cale):
+    out = []
+
+    for ln in citeste_linii(cale):
+        campuri = ln.split()
+        user = campuri[5]
+        comanda = " ".join(campuri[6:])
+
+        out.append({
+            "user": user,
+            "comanda": comanda
+        })
+
+    return out
+
+def enumereaza(d):
+    return {
+        "suid": suid_constatari(os.path.join(d, "suid.txt")),
+        "sudo": sudo_constatari(os.path.join(d, "sudo.txt")),
+        "cron": cron_constatari(os.path.join(d, "crontab.txt"))
+    }
+
+
+# raport = enumereaza("arsenal/privesc/start")
+
+# for categorie, lista in raport.items():
+#    print(categorie, len(lista))
+
+
+# A5
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument("capturi")
+    p.add_argument("--json", action="store_true")
+    a = p.parse_args()
+
+    raport = enumereaza(a.capturi)
+
+    if a.json:
+        print(json.dumps(raport, indent=2, ensure_ascii=False))
+        return
+
+    for categorie, lista in raport.items():
+        mari = [c for c in lista if c.get("risc") == "mare"]
+        print(f"{categorie}: {len(lista)} gasite, {len(mari)} cu risc mare")
+
+    utilizatori = (
+        {c["user"] for c in raport["sudo"]}
+        | {c["user"] for c in raport["cron"]}
+    )
+
+    with open("enum.json", "w", encoding="utf-8") as f:
+        json.dump(raport, f, indent=2, ensure_ascii=False)
+
+    print("Raport salvat in enum.json")
+
+
+if __name__ == "__main__":
+    main()

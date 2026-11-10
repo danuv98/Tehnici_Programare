@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72e39b9d-ea42-4738-89e4-0cee5f7ee2a6" name="Changes" comment="" />
+    <list default="true" id="72e39b9d-ea42-4738-89e4-0cee5f7ee2a6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arsenal/forensics/stego.py" beforeDir="false" afterPath="$PROJECT_DIR$/arsenal/forensics/stego.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +22,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
@@ -98,6 +105,7 @@
     "Python.decode.executor": "Run",
     "Python.forensics.executor": "Run",
     "Python.stego.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
@@ -130,7 +138,8 @@
       <option name="presentableId" value="Default" />
       <updated>1792493453469</updated>
       <workItem from="1792493454480" duration="2342000" />
-      <workItem from="1792934294110" duration="19266000" />
+      <workItem from="1792934294110" duration="20453000" />
+      <workItem from="1793702357756" duration="23000" />
     </task>
     <servers />
   </component>
